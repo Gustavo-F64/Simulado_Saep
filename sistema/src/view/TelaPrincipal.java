@@ -1,0 +1,5 @@
+package view;
+import javax.swing.*; import java.awt.*; import util.Sessao;
+public class TelaPrincipal extends JFrame {
+ public TelaPrincipal(){setTitle("Sistema Hospital Pediátrico");setDefaultCloseOperation(EXIT_ON_CLOSE);setSize(440,380);setLocationRelativeTo(null);if(!Sessao.estaAtiva()){new TelaLogin().setVisible(true);dispose();return;}JLabel titulo=new JLabel("Sistema Hospital Pediátrico",SwingConstants.CENTER);titulo.setFont(new Font("Segoe UI",Font.BOLD,20));JLabel usuario=new JLabel("Usuário: "+Sessao.getNomeUsuario());JButton r=new JButton("Responsáveis"),d=new JButton("Dependentes"),c=new JButton("Consultas"),sair=new JButton("Sair");JPanel p=new JPanel(new GridLayout(6,1,10,10));p.setBorder(BorderFactory.createEmptyBorder(20,45,20,45));p.add(titulo);p.add(usuario);p.add(r);p.add(d);p.add(c);p.add(sair);add(p);r.addActionListener(e->new TelaResponsavel().setVisible(true));d.addActionListener(e->new TelaDependente().setVisible(true));c.addActionListener(e->new TelaConsulta().setVisible(true));sair.addActionListener(e->{Sessao.encerrar();new TelaLogin().setVisible(true);dispose();});}
+}
