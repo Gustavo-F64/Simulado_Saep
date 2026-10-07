@@ -1,5 +1,5 @@
 DESCRIÇÃO DA SAÍDA DA COMPILAÇÃO
-
+========================
 
 Ao compilar um projeto de aplicação Java que possui uma classe principal, a IDE
 copia automaticamente todos os arquivos JAR
